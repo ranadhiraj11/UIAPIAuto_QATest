@@ -1,0 +1,16 @@
+{
+  "TC_Searchservice": {
+    "searchservice":"Apply for a number plate"
+        
+  },
+    "TC_Searchlocation": {
+      "searchlink":"Find locations",
+      "suburb":"Sydney 2000",
+      "searchtxt":"Marrickville Service Centre"      
+    },
+    "api":{
+      "lat":"40.730610",
+      "lon":"-73.935242",
+      "postal_code":"2114"
+    }
+  }

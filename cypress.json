@@ -1,0 +1,15 @@
+{
+    "baseUrl" : "https://www.service.nsw.gov.au",
+    "env" :{
+        "apiKey": "bed3865fe8d7442090d5c14490615b0e",
+        "apiURL":"http://api.weatherbit.io/v2.0"
+    },
+    
+    "mochawesomeReporterOptions": {
+        "quiet": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportTitle": "Tech Test"
+      }
+}
