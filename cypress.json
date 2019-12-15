@@ -5,11 +5,10 @@
         "apiURL":"http://api.weatherbit.io/v2.0"
     },
     
-    "mochawesomeReporterOptions": {
-        "quiet": true,
-        "overwrite": false,
-        "html": true,
-        "json": true,
-        "reportTitle": "Tech Test"
-      }
+    "reporter": "mochawesome",
+    "reporterOptions": {
+    "charts":true,
+    "overwrite": false,
+    "reportTitle": "Automation"
+    }
 }
