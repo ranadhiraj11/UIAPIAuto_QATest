@@ -34,8 +34,10 @@ jobs:
           name: reportfileMerge
           command: 'npm run mergeMochaReport'      
       - store_test_results:
-          path: cypress/mochareports/report.html
+          path: mochareports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+      - store_artifacts:
+          path: mochareports
