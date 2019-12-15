@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/C:\UIAPIAuto_QATest
+    working_directory: ~/UIAPIAuto_QATest
     docker:
       - image: circleci/node:10.16.3 
       - image: mongo:4.2.0 
