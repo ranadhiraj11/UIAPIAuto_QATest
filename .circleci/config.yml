@@ -1,27 +1,41 @@
-version: 2.1
+
+version: 2
+
 jobs:
   build:
-    working_directory: ~/UIAPIAuto_QATest
     docker:
-      - image: circleci/node:10.16.3 
-      - image: mongo:4.2.0 
+      # the Docker image with Cypress dependencies
+      - image: cypress/base:8
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/app
+    parallelism: 1
     steps:
       - checkout
-      - run:
-          name: install-npm-wee
-          command: npm install
+      - restore_cache:
+          keys:
+            - v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - v2-deps-{{ .Branch }}-
+            - v2-deps-
+      - run: npm install
+      - save_cache:
+          key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
       - run:
           name: test
-          command: npm test
+          command: 'npm test'
       - run:
-          name: reportfile
+          name: Generating Report
           command: npm run makereportdirectory
       - run:
           name: reportfileMerge
-          command: npm run mergeMochaReport            
-     
-      - store_artifacts:        
-          path: mochareports\report.html
-          prefix: tests
+          command: 'npm run mergeMochaReport'      
       - store_test_results:
-          path: mochareports\report.html
+          path: cypress/mochareports/report.html
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
