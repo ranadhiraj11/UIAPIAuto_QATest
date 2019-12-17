@@ -14,6 +14,7 @@
   },
   "scripts": {
     "test": "npx cypress run --reporter mochawesome",
+    "test-junit": "npx cypress run --reporter junit --reporter-options 'mochaFile=junit-results/my-test-output.xml'",
     "makereportdirectory": "npx mochawesome-merge - reportDir cypress/mocha>mochawesome-report/report.json",
     "mergeMochaReport": "npx marge mochawesome-report/report.json -f report -o mochareports"
   },
